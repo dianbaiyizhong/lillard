@@ -1,5 +1,7 @@
 package com.nntk.nba.watch.lillard.complication
 
+import android.app.PendingIntent
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.drawable.Icon
 import androidx.wear.watchface.complications.data.ComplicationData
@@ -65,6 +67,13 @@ class NbaScoreComplicationService : SuspendingComplicationDataSourceService() {
                 image = Icon.createWithResource(this, guestIcon),
                 type = SmallImageType.ICON,
             ).build()
+        ).setTapAction(
+            PendingIntent.getService(
+                this,
+                0,
+                Intent(this, MyTapService::class.java),
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
         ).setMonochromaticImage(
             MonochromaticImage.Builder(
                 image = Icon.createWithResource(this, homeIcon),

@@ -24,8 +24,8 @@
         <service
             android:name=".complication.NbaScoreComplicationService"
             android:exported="true"
-            android:label="开启直播"
             android:icon="@drawable/enable"
+            android:label="开启直播"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -41,8 +41,8 @@
         <service
             android:name=".complication.NoDataDataSourceService"
             android:exported="true"
-            android:label="取消直播"
             android:icon="@drawable/disable"
+            android:label="取消直播"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -57,7 +57,7 @@
         </service>
 
 
-
+        <service android:name=".complication.MyTapService" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
