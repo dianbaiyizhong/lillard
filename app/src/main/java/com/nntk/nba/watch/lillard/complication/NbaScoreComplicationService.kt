@@ -52,9 +52,9 @@ class NbaScoreComplicationService : SuspendingComplicationDataSourceService() {
     ): ComplicationData {
 
 
-        val homeIcon = ResourceUtils.getDrawableIdByName("hupu_" + gameInfo.homeTeamEntity.teamName)
+        val homeIcon = ResourceUtils.getDrawableIdByName("qiumiwu_" + gameInfo.homeTeamEntity.teamName)
         val guestIcon =
-            ResourceUtils.getDrawableIdByName("hupu_" + gameInfo.guestTeamEntity.teamName)
+            ResourceUtils.getDrawableIdByName("qiumiwu_" + gameInfo.guestTeamEntity.teamName)
 
 
         return LongTextComplicationData.Builder(
