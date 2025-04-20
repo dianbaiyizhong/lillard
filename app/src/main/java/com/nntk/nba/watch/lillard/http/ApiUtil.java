@@ -59,6 +59,7 @@ public class ApiUtil {
         ThreadUtils.getIoPool().execute(new Runnable() {
             @Override
             public void run() {
+                Logger.i("开始请求虎扑数据");
                 // https://nba-prod-us-east-1-mediaops-stats.s3.amazonaws.com/NBA/liveData/scoreboard/todaysScoreboard_00.json
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
@@ -86,18 +87,18 @@ public class ApiUtil {
 
 
                             if (game.get(0).select("span").size() == 1) {
-                                guestTeam = game.get(0).select("span").get(0).text();
+                                guestTeam = game.get(0).select("span").get(0).text().replaceAll("\\(\\d+\\)", "").trim();;
                                 guestRate = "-";
                             } else {
-                                guestTeam = game.get(0).select("span").get(1).text();
-                                guestRate = game.get(0).select("span").get(0).text();
+                                guestTeam = game.get(0).select("span").get(1).text().replaceAll("\\(\\d+\\)", "").trim();;
+                                guestRate = game.get(0).select("span").get(0).text().replaceAll("\\(\\d+\\)", "").trim();;
                             }
                             if (game.get(1).select("span").size() == 1) {
-                                homaTeam = game.get(1).select("span").get(0).text();
+                                homaTeam = game.get(1).select("span").get(0).text().replaceAll("\\(\\d+\\)", "").trim();;
                                 homaRate = "-";
                             } else {
-                                homaTeam = game.get(1).select("span").get(1).text();
-                                homaRate = game.get(1).select("span").get(0).text();
+                                homaTeam = game.get(1).select("span").get(1).text().replaceAll("\\(\\d+\\)", "").trim();;
+                                homaRate = game.get(1).select("span").get(0).text().replaceAll("\\(\\d+\\)", "").trim();;
                             }
 
                             gameInfoList.add(GameInfo.builder()
