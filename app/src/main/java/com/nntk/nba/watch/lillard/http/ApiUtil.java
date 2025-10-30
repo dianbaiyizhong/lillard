@@ -61,7 +61,9 @@ public class ApiUtil {
             public void run() {
                 Logger.i("开始请求虎扑数据");
                 // https://nba-prod-us-east-1-mediaops-stats.s3.amazonaws.com/NBA/liveData/scoreboard/todaysScoreboard_00.json
-                OkHttpClient client = new OkHttpClient();
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .addInterceptor(new RetryInterceptor())
+                        .build();
                 Request request = new Request.Builder()
                         .get()
                         .url("https://nba.hupu.com/games")
